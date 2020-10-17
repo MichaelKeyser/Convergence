@@ -39,4 +39,4 @@ def longest_path(sequence, start, limit, epsilon, max_len):
     return max_path
 
 
-print(longest_sequence([1, 9, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
+#print(longest_sequence([1, 9, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
