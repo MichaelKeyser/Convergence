@@ -17,14 +17,14 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len):
     if abs(sequence[start] - limit) >= epsilon:
         return list()
     if start == len(sequence):
-        return list(range(sequence[start], sequence[start] + 1))
+        return list(str(sequence[start]))
 
     max_path = list()
     for i in range(start + 1, len(sequence)):
         if (cur_length + (len(sequence) - i)) <= max_len:
             break
 
-        cur_path = list(range(sequence[start], sequence[start] + 1))\
+        cur_path = list(str(sequence[start]))\
                    + longest_path(sequence, i, limit, abs(sequence[start] - limit), cur_length + 1, max_len)
         if len(cur_path) > len(max_path):
             max_path = cur_path
