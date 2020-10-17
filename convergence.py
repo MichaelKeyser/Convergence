@@ -1,6 +1,3 @@
-import sys
-
-
 def longest_sequence(sequence, limit):
     max_path = list()
 
