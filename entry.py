@@ -2,16 +2,15 @@
 This script serves as the entry to our project. It asks the user to enter in the number of elements of the sequence
 along with the option to generate a random sequence.
 """
+import setup as s
 
-
-user = input("Please enter how many numbers you want in your sequence and provide a sequence. Please separate by comma. Type RANDOM if you want a random sequence: ")
+num_elements = input("How many elements do you want in your sequence: ")
+sequence = input("Enter the sequence, or type RANDOM to generate a random sequence: ")
 
 try:
-    if user == "RANDOM":
+    if sequence == "RANDOM":
         print("RANDOM")
     else:
-        user_input = user.split(",") # split at comma
-        num_elements = input(user_input[0]) # this is an integer
-        sequence = user_input[1] # this is a string
+        num_elements = int(num_elements) # this is an integer
 except:
     print("Input could not be understood. Check your input format.")
