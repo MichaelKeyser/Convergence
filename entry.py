@@ -5,6 +5,7 @@ along with the option to generate a random sequence.
 
 import functions as f
 import convergence as c
+
 num_elements = input("How many elements do you want in your sequence: ")
 sequence = input("Enter the sequence with n as the variable, or type RANDOM to generate a random sequence: ")
 limit = input("Enter the limit you want to converge to: ")

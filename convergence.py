@@ -3,6 +3,7 @@ def longest_sequence(sequence, limit):
     max_paths_list = [-1] * len(sequence)
 
     for i in range(0, len(sequence)):
+        print("Currently working on element", i)
         if i >= len(sequence) - len(max_path):
             break
 
