@@ -1,5 +1,6 @@
 def longest_sequence(sequence, limit):
     max_path = list()
+    max_paths_list = [-1] * len(sequence)
 
     for i in range(0, len(sequence)):
         if i >= len(sequence) - len(max_path):
@@ -7,28 +8,37 @@ def longest_sequence(sequence, limit):
 
         epsilon = abs(sequence[i] - limit)
 
-        cur_path = longest_path(sequence, i, limit, epsilon + 1, 0, len(max_path))
+        cur_path = longest_path(sequence, i, limit, epsilon + 1, 0, len(max_path), max_paths_list)
         if len(cur_path) > len(max_path):
             max_path = cur_path
     return max_path
 
 
-def longest_path(sequence, start, limit, epsilon, cur_length, max_len):
-    if abs(sequence[start] - limit) >= epsilon:
+def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths_list):
+    if abs(sequence[start] - limit) > epsilon:
         return list()
     if start == len(sequence):
         return [sequence[start]]
 
-    max_path = list()
     for i in range(start + 1, len(sequence)):
         if (cur_length + (len(sequence) - i)) <= max_len:
             break
 
-        cur_path = [sequence[start]]\
-                   + longest_path(sequence, i, limit, abs(sequence[start] - limit), cur_length + 1, max_len)
-        if len(cur_path) > len(max_path):
-            max_path = cur_path
-    return max_path
+        if max_paths_list[i] == -1:
+            cur_path = longest_path(sequence, i, limit, abs(sequence[start] - limit),
+                                         cur_length + 1, max_len, max_paths_list)
+            if cur_path == -1:
+                max_paths_list[i] = [sequence[i]]
+            elif len(cur_path) != 0:
+                max_paths_list[i] = cur_path
+            else:
+                continue
+
+        cur_path = [sequence[start]] + max_paths_list[i]
+        if max_paths_list[start] == -1 or len(cur_path) > len(max_paths_list[start]):
+            max_paths_list[start] = cur_path
+
+    return max_paths_list[start]
 
 
-#print(longest_sequence([1.4, 9.1, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
+print(longest_sequence([1, 9, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
