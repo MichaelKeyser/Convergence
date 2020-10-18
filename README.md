@@ -46,6 +46,8 @@ will print the longest sequence and graph it. Matplotlib is required for the plo
 
 The user will be prompted to provide the number of elements in the sequence that will be searched for a subsequence. The user will then be prompted to enter either "RANDOM" or a sequence using proper python syntax. For example, (1 + n)/ n is allowed. Entering "RANDOM" (no quotes when entering input) will also ask for the lower and upper bound to generate the random numbers between. Floating point values are allowed.
 
+A user define sequence is evaluated using Python's eval() function. This means that sequences can be defined using Python's math library. For example, math.log(n) works too. 
+
 
 RecusrionError:
 It is possible that a RecursionError can occur. This will happen when a significant portion
