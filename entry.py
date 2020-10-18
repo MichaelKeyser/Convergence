@@ -33,4 +33,4 @@ if sequence == "RANDOM":
 else:
     seq = f.generate_specific_sequence(sequence, int(num_elements))
     longest_seq = c.longest_sequence(seq, limit)
-print(longest_seq)
+print("Longest Sequence: ", longest_seq)

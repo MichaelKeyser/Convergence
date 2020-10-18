@@ -1,9 +1,11 @@
+import sys
+import matplotlib as plt
 def longest_sequence(sequence, limit):
     max_path = list()
     max_paths_list = [-1] * len(sequence)
 
     for i in range(0, len(sequence)):
-        print("Currently working on element", i)
+        #print("Currently working on element", i)
         if i >= len(sequence) - len(max_path):
             break
 
@@ -40,6 +42,3 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths
             max_paths_list[start] = cur_path
 
     return max_paths_list[start]
-
-
-print(longest_sequence([1, 9, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
