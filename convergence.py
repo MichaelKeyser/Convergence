@@ -24,7 +24,7 @@ def longest_subsequence(sequence, limit):
         cur_path = longest_path(sequence, i, limit, epsilon + 1, 0, len(max_path), max_paths_list)
         if len(cur_path) > len(max_path):
             max_path = cur_path
-    max_sequence = list(map(lambda n: sequence[n], max_path))
+    max_sequence = list(map(lambda n: sequence[n - 1], max_path))
     return max_path, max_sequence
 
 
@@ -45,7 +45,7 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths
     if abs(sequence[start] - limit) > epsilon:
         return list()
     if start == len(sequence):
-        return [start]
+        return [start + 1]
 
     for i in range(start + 1, len(sequence)):
         if (cur_length + (len(sequence) - i)) <= max_len:
@@ -55,13 +55,13 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths
             cur_path = longest_path(sequence, i, limit, abs(sequence[start] - limit),
                                          cur_length + 1, max_len, max_paths_list)
             if cur_path == -1:
-                max_paths_list[i] = [i]
+                max_paths_list[i] = [i + 1]
             elif len(cur_path) != 0:
                 max_paths_list[i] = cur_path
             else:
                 continue
 
-        cur_path = [start] + max_paths_list[i]
+        cur_path = [start + 1] + max_paths_list[i]
         if max_paths_list[start] == -1 or len(cur_path) > len(max_paths_list[start]):
             max_paths_list[start] = cur_path
 
