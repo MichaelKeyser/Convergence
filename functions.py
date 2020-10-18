@@ -1,5 +1,5 @@
 """
-This script contains functions that generate sequences to be searched for the longest subsequence.
+This script contains functions that generate sequences to be searched for the longest subsequence. It also contains functions used for graphing the sequences.
 Authors:
 """
 
@@ -23,3 +23,11 @@ def generate_specific_sequence(sequence_definition, num_elements):
         val = float(eval(sequence_definition)) # be aware that eval can be a potentially dangerous function to use
         sequence.append(val)
     return sequence
+
+
+def graph():
+    import matplotlib.pyplot as plt # import inline is done here in case user does not have matplotlib installed, can choose to not graph
+    plt.scatter([i +1 for i in range(len(longest_seq))],longest_seq)
+    plt.scatter([i + 1 for i in range(len(seq))], seq)
+    plt.plot(longest_sequence)
+    plt.show()
