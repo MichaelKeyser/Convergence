@@ -1,7 +1,7 @@
 """
 Authors: Ben Huenemann and Michael Keyser
-
-This file contains the algorithms for computing the longest subsequence
+Date: 10/17/20
+This file contains the algorithms for computing the longest subsequence.
 """
 
 """
