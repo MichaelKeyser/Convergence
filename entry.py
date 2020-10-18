@@ -1,5 +1,6 @@
 """
 Authors: Ben Huenemann and Michael Keyser
+Date: 10/17/20
 This script serves as the entry to our project. It asks the user to enter in the
 number of elements of the sequence along with the option to generate a random
 sequence. It also takes command line arguments to determine the output. If the
@@ -8,6 +9,7 @@ as an argument then a graph with the sequence and its longest subsequence will b
 generated. If p g is passed the longest subsequence will be printed along with
 the graph being generated.
 """
+
 import functions as f
 import convergence as c
 import sys
