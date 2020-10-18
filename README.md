@@ -1,10 +1,21 @@
-This project was created by Ben Heunemann and Michael Keyser for the FALL 2020 U of U
+This project was created by Ben Huenemann and Michael Keyser for the FALL 2020 U of U
 hackathon-HackTheU. The goal of this project is to find the longest convergent subsequence
 of a sequence of numbers. The Bolzano-Weierstrass theorem states that any bounded sequence
 has a convergent subsequence. It is said a sequence converges {x_n} to L if 
 |x_n - L| < epsilon, epsilon > 0. We provide a sequence and an L to try and converge upon. Sequences in math are infinite, while computers are finite. We approximate a sequence
 by computing the first n (n is specified by the user) elements of the sequence. This means we provide no formal proof of a subsequence converging to L.
 
+This project also only counts sequences that get closer to the desired limit.
+In order to make it more of an optimization problem, we made it calculate the longest sequence
+that converges to that limit. This could used to find potential subsequences when plugging
+in infinite sequences. Another optimization would have to be added, however, to find the limit
+that has the longest convergent series.
+
+The way that the algorithm accomplishes this is by computing all of the subsequences recursively
+and eliminating ones that don't satisfy convergence. While it does this, it keeps track of
+a list of the maximum sequences for each entry in the sequence so it doesn't have to repeat
+the computations. It also doesn't bother computing sequences when there aren't enough elements
+left to beat the current maximum.
 
 Version and Use:
 This project was developed using Python 3.8. 
