@@ -6,9 +6,10 @@ This file contains the algorithms for computing the longest subsequence
 
 """
 This is a wrapper function that takes in a sequence and a limit. It then calls the longest path algorithm for each
-term in the sequence and keeps track of the maximum. It also stops incrementing through the sequence if it reaches
-a point where the subsequence can't beat the current maximum. The max_paths_length list is used to keep track of the
-maximum subsequence starting at each element in the sequence.
+term in the sequence and keeps track of the maximum. At the end, it also converts the list of indices into values and
+returns both. It also stops incrementing through the sequence if it reaches a point where the subsequence can't beat
+the current maximum. The max_paths_length list is used to keep track of the maximum subsequence starting at each
+element in the sequence.
 """
 def longest_subsequence(sequence, limit):
     max_path = list()
