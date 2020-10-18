@@ -27,10 +27,7 @@ If we choose to look at the first 1000 numbers in {x_n} 1/1, 1/2, 1/3, 1/4, 1/5,
 
 Our Algorithm:
 This project only counts sequences that get closer to the desired limit.
-In order to make it more of an optimization problem, we made it calculate the longest sequence
-that converges to that limit. This could be used to find potential subsequences when plugging
-in infinite sequences. Another optimization would have to be added, however, to find the limit
-that has the longest convergent series.
+In order to make it more of an optimization problem, we made it calculate the longest sequence that converges to that limit. This could be used to find potential subsequences when plugging in infinite sequences. Another optimization would have to be added, however, to find the limit that has the longest convergent series.
 
 The way that the algorithm accomplishes this is by computing all of the subsequences recursively and eliminating ones that don't satisfy convergence. While it does this, it keeps track of a list of the maximum sequences for each entry in the sequence so it doesn't have to repeat the computations. It also doesn't bother computing sequences when there aren't enough elements left to beat the current maximum.
 
