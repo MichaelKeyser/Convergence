@@ -54,7 +54,15 @@ It is possible that a RecursionError can occur. This will happen when a signific
 of the longest subsequence are part of the base sequence that is being searched. For example. 1/n with -> 0 uses all elements in the sequence to construct the longest path. 1/n -> 0 does not work for n = 1000. However, a random sequence avoids this issue and has been tested up to
 n = 10000 with a lower bound of -10, upper bound of 0, and a desired limit of 0. 
 
+Examples:
+image number # elements lower_bound upper_bound  limit     sequence_definition
 
+example1.png    10000      -10          10         0
+example2.png    1000       -10          10         -10
+example3.png    100        n/a          n/a        0	      1/n
+example4.png    50         0            10         5  
+example5.png    1000       n/a          n/a        0          math.sin(n)
+example6.png    1000       n/a          n/a        50         math.tan(n)
 
 
 
