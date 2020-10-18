@@ -1,36 +1,44 @@
 """
 This script serves as the entry to our project. It asks the user to enter in the number of elements of the sequence
-along with the option to generate a random sequence.
+along with the option to generate a random sequence. It also takes command line arguments to determine the output.
 """
 
 import functions as f
 import convergence as c
+import sys
 
+# number of elements to be in sequence
 num_elements = input("How many elements do you want in your sequence: ")
+# the sequence as a string, eg. 1/n
 sequence = input("Enter the sequence with n as the variable, or type RANDOM to generate a random sequence: ")
+# what limit we want to converg to
 limit = input("Enter the limit you want to converge to: ")
-"""
+
 try:
-    if sequence == "RANDOM":
-        lower = input("Provide lower bound: ")
+    limit = float(limit)
+    seq = []
+    longest_seq = []
+    if sequence == "RANDOM": # the user provided RANDOM as the sequence
+        lower = input("Provide lower bound: ") # ask for a lower bound
         lower = float(lower.strip())
-        upper = input("Provide upper bound: ")
+        upper = input("Provide upper bound: ") # ask for an upper bound
         upper = float(upper.strip())
-        seq = generate_random_sequence(lower, uppper, int(num_elements))
-    else:
-        num_elements = int(num_elements) # this is an integer
+        seq = f.generate_random_sequence(lower, upper, int(num_elements)) # generate a random sequence given the upper and lower bound
+        longest_seq = c.longest_sequence(seq, limit) # find the longest subsequence
+    else: # user provided a sequence, e.g. 1/n
+        seq = f.generate_specific_sequence(sequence, int(num_elements)) # generate the sequence using the sequence definition provided by user
+        longest_seq = c.longest_sequence(seq, limit) # find the longest subsequence
+
+    num_args = len(sys.argv)
+    if(num_args > 1): # user provided a command line argument
+        if str(sys.argv[1]) == "p": # check if first command line argument was p
+            print("Longest Sequence: ", longest_seq)
+    if(num_args == 3): # user provided 2 command line arguments
+        if(str(sys.argv[2]) == "g"): # check if second command line argument was g
+            import matplotlib.pyplot as plt # import inline is done here in case user does not have matplotlib installed, can choose to not graph
+            plt.scatter([i +1 for i in range(len(longest_seq))],longest_seq)
+            plt.scatter([i + 1 for i in range(len(seq))], seq)
+            #plt.plot(longest_sequence)
+            plt.show()
 except:
-    print("Input could not be understood. Check your input format.")
-"""
-limit = float(limit)
-if sequence == "RANDOM":
-    lower = input("Provide lower bound: ")
-    lower = float(lower.strip())
-    upper = input("Provide upper bound: ")
-    upper = float(upper.strip())
-    seq = f.generate_random_sequence(lower, upper, int(num_elements))
-    longest_seq = c.longest_sequence(seq, limit)
-else:
-    seq = f.generate_specific_sequence(sequence, int(num_elements))
-    longest_seq = c.longest_sequence(seq, limit)
-print("Longest Sequence: ", longest_seq)
+    print("An error ocurred. Check your input format.\nIt is also possible the sequence was too large to be evaluated by the recursive algorithm, so try a smaller n.\nCheck all command line arguments and inputs adhere to specifications in the README.")

@@ -66,6 +66,3 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths
             max_paths_list[start] = cur_path
 
     return max_paths_list[start]
-
-
-print(longest_subsequence([1, 9, 4, 5, 2, 9, 4, 5, 2, 4, 2], 5))
