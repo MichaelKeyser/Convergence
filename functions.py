@@ -6,7 +6,7 @@ It also contains a function used for graphing the sequences.
 """
 
 import random as r
-
+import math
 """
 Generates a list of n random floating point numbers within lower_bound and upper_bound
 """
