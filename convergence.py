@@ -16,6 +16,9 @@ def longest_subsequence(sequence, limit):
     max_paths_list = [-1] * len(sequence)
 
     for i in range(0, len(sequence)):
+        if i % (len(sequence) // 10) == 0:
+            print(str(10 * round(10 * i / len(sequence))) + "%")
+
         if i >= len(sequence) - len(max_path):
             break
 
@@ -25,6 +28,7 @@ def longest_subsequence(sequence, limit):
         if len(cur_path) > len(max_path):
             max_path = cur_path
     max_sequence = list(map(lambda n: sequence[n - 1], max_path))
+    print("100%")
     return max_path, max_sequence
 
 
