@@ -1,6 +1,6 @@
 """
+Authors: Ben Huenemann and Michael Keyser
 This script contains functions that generate sequences to be searched for the longest subsequence. It also contains functions used for graphing the sequences.
-Authors:
 """
 
 import random as r
