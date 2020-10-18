@@ -55,7 +55,7 @@ def longest_path(sequence, start, limit, epsilon, cur_length, max_len, max_paths
             cur_path = longest_path(sequence, i, limit, abs(sequence[start] - limit),
                                          cur_length + 1, max_len, max_paths_list)
             if cur_path == -1:
-                max_paths_list[i] = [sequence[i]]
+                max_paths_list[i] = [i]
             elif len(cur_path) != 0:
                 max_paths_list[i] = cur_path
             else:
