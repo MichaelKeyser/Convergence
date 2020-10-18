@@ -27,6 +27,7 @@ def generate_specific_sequence(sequence_definition, num_elements):
 
 def graph(indices, longest_seq, seq):
     import matplotlib.pyplot as plt # import inline is done here in case user does not have matplotlib installed, can choose to not graph
-    plt.scatter(indices, longest_seq)
-    plt.scatter([i + 1 for i in range(len(seq))], seq)
+    fig, ax = plt.subplots()
+    ax.scatter([i + 1 for i in range(len(seq))], seq, color = 'b')
+    ax.plot(indices, longest_seq, color = 'r')
     plt.show()

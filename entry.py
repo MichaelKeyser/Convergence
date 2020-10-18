@@ -64,7 +64,7 @@ num_args = len(sys.argv)
 if(num_args > 1): # user provided a command line argument
     if str(sys.argv[1]) == "p": # check if first command line argument was p
         print("Longest Sequence: ", longest_seq)
-    if str(sys.argv[1] == "g"):
+    elif str(sys.argv[1]) == "g":
         f.graph(indices, longest_seq, seq)
 if(num_args == 3): # user provided 2 command line arguments
     if(str(sys.argv[2]) == "g"): # check if second command line argument was g
